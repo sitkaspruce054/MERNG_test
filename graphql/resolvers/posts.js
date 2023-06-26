@@ -6,8 +6,11 @@ module.exports =  {
     Query: {
         
         async getPosts() {
+            console.log('getPosts')
             try{
                 const posts = await Post.find().sort({ createdAt: -1});
+                console.log(typeof posts)
+                console.log(posts)
                 return posts;
             } catch(err){
                 throw new Error(err);
@@ -32,7 +35,7 @@ module.exports =  {
             const user = checkAuth(context);
             console.log(user);
 
-            if(args.body.trim() === ''){
+            if(body.trim() === ''){
                 throw new Error('Post body must not be empty');
             }
 
@@ -49,25 +52,28 @@ module.exports =  {
             context.pubsub.publish('NEW_POST', {
                 newPost: post
             })
-
+            
             return post;
             
         },
-        async deletePost(_,{ postId }, context){
+        async deletePost(_, { postId }, context) {
             const user = checkAuth(context);
-
-            try{
-                const post = await Post.findById(postId);
-                if(user.username === post.username){
-                    await post.delete();
-                    return 'Post deleted successfully'
-                } else {
-                    throw new AuthenticationError('Action not allowed')
-                }
-            } catch(err){
-                throw new Error(err);
+            
+            try {
+              console.log(Post)
+              const post = await Post.findById(postId);
+              
+              if (user.username === post.username) {
+                
+                await Post.findByIdAndDelete(postId);
+                return 'Post deleted successfully';
+              } else {
+                throw new AuthenticationError('Action not allowed');
+              }
+            } catch (err) {
+              throw new Error(err);
             }
-        },
+          },
         async likePost(_,{ postId }, context){
             const { username } = checkAuth(context);
 

@@ -22,7 +22,7 @@ function generateToken(user){
 module.exports = {
     Mutation: {
             async login(_,{ username, password }){
-                
+
                 const {errors, valid} = validateLoginInput(username, password);
 
                 if(!valid){
@@ -65,7 +65,9 @@ module.exports = {
 
             if(user){
                 throw new UserInputError('Username is taken', {
-                    username: 'This username is taken!'
+                    errors: {
+                        username: 'This username is taken'
+                    }
                 })
             }
 
