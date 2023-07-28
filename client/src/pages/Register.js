@@ -84,7 +84,7 @@ function Register(props) {
             
             onChange={onChange}
             />
-        <Button type="submit" primary>
+        <Button type="submit" color='teal'>
             Register
         </Button>
       </Form>

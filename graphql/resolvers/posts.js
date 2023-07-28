@@ -60,7 +60,7 @@ module.exports =  {
             const user = checkAuth(context);
             
             try {
-              console.log(Post)
+              
               const post = await Post.findById(postId);
               
               if (user.username === post.username) {

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from './context/auth';
+import './App.css'
 function MenuBar() {
   const { user,logout } = useContext(AuthContext)
   const pathname = window.location.pathname;
@@ -11,7 +12,7 @@ function MenuBar() {
 
   const handleItemClick = (e, { name }) => setActiveItem(name)
   const menuBar = user ? (
-    <Menu pointing secondary size="massive" color="violet">
+    <Menu pointing secondary size="massive" color="grey">
           <Menu.Item
             name={user.username}
             
@@ -35,7 +36,7 @@ function MenuBar() {
 
   ) : (
 
-    <Menu pointing secondary size="massive" color="violet">
+    <Menu pointing secondary size="massive" color="grey">
           <Menu.Item
             name='home'
             active={activeItem === 'home'}

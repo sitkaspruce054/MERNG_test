@@ -9,5 +9,18 @@
 .form-container{
   width: 400px;
   margin:auto;
+  background-image:linear-gradient(pink, aquamarine); 
+  padding: 10px;
+  border-radius: 1rem;
 }
 
+
+
+
+body,button{
+  background-image: linear-gradient(pink, aquamarine);
+}
+
+Button{
+  color: aqua;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client';
 import { Container } from 'semantic-ui-react'
 
@@ -18,9 +18,9 @@ import MenuBar from './MenuBar';
 
 function App() {
   return (
-    <AuthProvider>
+    <AuthProvider className="container">
     <Router>
-      <Container>
+      <Container className="container">
         <MenuBar/>
         
         <Routes>

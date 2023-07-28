@@ -19,16 +19,16 @@ const  [likePost] = useMutation(LIKE_POST_MUTATION, {
 });
 const likeButton = user ? (
     liked ? (
-        <Button color='purple'>
+        <Button color='pink'>
             <Icon name='heart'/>
         </Button>
         ) : (
-            <Button color='purple' basic>
+            <Button color='pink' basic>
                 <Icon name='heart'/>
             </Button>
         )
     ) : (
-        <Button as={Link} to='/login' color='purple' basic>
+        <Button as={Link} to='/login' color='pink' basic>
             <Icon name='heart'/>
         </Button>
 
@@ -38,7 +38,7 @@ const likeButton = user ? (
 return(
     <Button as='div' labelPosition='right' onClick={likePost}>
        {likeButton}
-        <Label as='a' basic color='purple' pointing='left'>
+        <Label as='a' basic color='pink' pointing='left'>
             {likeCount}
         </Label>
         </Button>

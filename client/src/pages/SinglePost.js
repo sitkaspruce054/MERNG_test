@@ -54,9 +54,10 @@ function SinglePost(props){
                 <Grid.Row>
                     <Grid.Column width={2}>
                         <Image
-                         src='https://react.semantic-ui.com/images/avatar/large/molly.png'
+                         src='https://image.pngaaa.com/707/696707-middle.png'
                          size="small"
                          float="right"
+                         avatar
                         />
                     </Grid.Column>
                     <Grid.Column width={10}>
@@ -72,14 +73,15 @@ function SinglePost(props){
                             <Button
                                 as='div'
                                 labelposition='right'
-                                onClick={()=> console.log('commment')} 
+                                onClick={()=> console.log('commment')}
+                                
                                 >
-                                    <Button basic color='blue'>
-                                        <Icon name='comments'/>
-                                    </Button>
-                                    <Label basic color='blue' pointing='left'>
-                                        {commentCount}
-                                    </Label>
+                            <Button basic color='teal'  >
+                                <Icon name='comments'/>
+                            </Button>
+                            <Label basic color='teal' pointing='left'>
+                                {commentCount}
+                            </Label>
 
                             </Button>
                             {user && user.username === username && (
@@ -103,9 +105,10 @@ function SinglePost(props){
                                     </div>
                                     <button type="submit"
                                         style = {{marginTop:10}}
-                                        className='ui button purple'
+                                        className='ui button teal'
                                         disabled = {comment.trim()=== ''}
                                         onClick = {submitComment}
+
                                     >
                                     Submit
                                     </button>

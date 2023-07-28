@@ -30,7 +30,7 @@ return(
     <>
         <Button
             as='div'
-            color='red'
+            color='pink'
             floated='right'
             onClick={() => setConfirmOpen(true)}
             >
